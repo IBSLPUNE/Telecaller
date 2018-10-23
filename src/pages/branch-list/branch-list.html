@@ -1,0 +1,62 @@
+<!--
+  Generated template for the BranchListPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Branch List</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+	<div class="divBox">
+		<div padding>
+      <ion-grid class="text-center">
+         <button ion-button full color="primary" type="button" (click)="showNewBranchRequest()">Branch</button>
+      </ion-grid>
+    </div>
+		<ion-grid class="grdLeaveHistory">
+      <ion-row>
+        <ion-col class="bold text-center">
+            <ion-searchbar placeholder="Search" [(ngModel)]="searchName"></ion-searchbar>
+        </ion-col>
+      </ion-row>
+			<ion-row>
+        <ion-col text-wrap class="bold text-center" col-2>
+          Sr.No
+        </ion-col>
+        <ion-col text-wrap class="bold text-center" col-4>
+          Code
+        </ion-col>
+        <ion-col text-wrap class="bold text-center" col-4>
+          Branch Name
+        </ion-col>
+        <ion-col text-wrap class="bold text-center" col-2> 
+          Action
+        </ion-col> 
+      </ion-row>
+      <ion-row *ngFor="let bof of branch_data | branch: searchName | paginate:{ itemsPerPage:7, currentPage:p} ; let i = index">
+        <ion-col class="text-center" col-2>
+          {{i+1}}
+        </ion-col>
+		    <ion-col class="text-center" col-4>
+          {{bof.code}}
+        </ion-col>
+        <ion-col class="text-center" col-4>
+          {{bof.name}}
+        </ion-col>
+        <ion-col class="text-center" col-2>  
+          <button ion-button icon-only outline small class="view" (click)="showModalDialog(bof)">
+            <ion-icon name="eye"></ion-icon>
+          </button> 
+        </ion-col>
+		  </ion-row>
+        <pagination-controls (pageChange)="p =$event"></pagination-controls>
+		</ion-grid>
+	</div>
+</ion-content>

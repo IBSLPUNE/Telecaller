@@ -1,0 +1,80 @@
+<!--
+  Generated template for the FinancerPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Financer</ion-title>
+        <ion-buttons end>
+            <button ion-button (click)="closeModal()">Close</button>
+        </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+	<div class="divBox">
+   <form (submit)="saveFinancerRequest()">
+            <ion-item>
+                <ion-label>Brnach</ion-label>
+                <ion-select [(ngModel)]="branch_type" name="EmployeeName" [compareWith]="compareFn" interface="popover" multiple="false">
+                <ion-option *ngFor="let btd of branch_type_data" [value]="btd">{{btd.text}}</ion-option>
+            </ion-select>
+            </ion-item>
+            <ion-item>
+                <ion-label>Code</ion-label>
+                <ion-textarea [(ngModel)]="Code" name="Code" type="text" placeholder="101"></ion-textarea>
+            </ion-item>
+            <ion-item>
+                <ion-label>Name</ion-label>
+                <ion-textarea [(ngModel)]="Name" name="Name" type="text" placeholder="Name"></ion-textarea>
+            </ion-item>
+            <ion-item>
+                <ion-label>Description</ion-label>
+                <ion-textarea [(ngModel)]="Description" name="Description" type="text" (ngModelChange)="textAreaEmpty()" placeholder="Description"></ion-textarea>
+            </ion-item>
+            <ion-item>
+                <ion-label>Place</ion-label>
+                <ion-textarea [(ngModel)]="Place" name="Place" type="text" (ngModelChange)="textAreaEmpty()" placeholder="Pune"></ion-textarea>
+            </ion-item>
+            <ion-item>
+                <ion-label>Address</ion-label>
+                <ion-textarea [(ngModel)]="Address" name="Address" type="text" (ngModelChange)="textAreaEmpty()" placeholder="Address"></ion-textarea>
+            </ion-item>
+            <ion-item>
+                <ion-label>Pin Code</ion-label>
+                <ion-input [(ngModel)]="PinCode" name="PinCode" type="tel" maxlength="6" (ngModelChange)="textAreaEmpty()" placeholder="111107"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label>Contact No.</ion-label>
+                <ion-input [(ngModel)]="ContactNo" name="ContactNo" type="tel" maxlength="10" (ngModelChange)="textAreaEmpty()" placeholder="9876543210"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label>Email</ion-label>
+                <ion-input [(ngModel)]="Email" name="Email" type="email" (ngModelChange)="textAreaEmpty()" placeholder="abc@gmail.com"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label>Contact Person</ion-label>
+                <ion-input [(ngModel)]="ContactPerson" name="ContactPerson" type="text" (ngModelChange)="textAreaEmpty()" placeholder="Amit"></ion-input>
+            </ion-item>
+            <!-- <ion-item>
+                <ion-label>Status</ion-label>
+                <ion-select [(ngModel)]="status" name="status" [compareWith]="compareFn" interface="popover" multiple="false">
+                <ion-option *ngFor="let sd of status_data" [value]="sd">{{sd.text}}</ion-option>
+            </ion-select>
+            </ion-item> -->
+            <ion-item>
+                <ion-label>Active</ion-label>
+                <ion-checkbox  [(ngModel)]="Active" name="Active" checked="false" (ngModelChange)="textAreaEmpty()"></ion-checkbox>
+            </ion-item>
+            <div padding>
+                <button ion-button full color="secondary" type="submit">Create Financer</button>
+            </div>
+        </form> 
+    </div>
+
+</ion-content>

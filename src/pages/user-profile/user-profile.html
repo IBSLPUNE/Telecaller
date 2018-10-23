@@ -1,0 +1,148 @@
+<!--
+  Generated template for the UserProfilePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>User Profile</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+    <div class="divBox">
+       <ion-grid class="grdLeaveHistory">
+           <ng-container *ngIf="employee_data">
+                <ion-row>
+                    <ion-col col-3>
+                    <img src='assets/imgs/avatar.png' (error)="updateUrl()" alt='image' height='70' width='70'/>
+                    </ion-col>
+                    <ion-col class="bold text-left" col-9>
+                        <br/>
+                         {{employee_data.code}}
+                        <br/>
+                         {{employee_data.prefix}} {{employee_data.first_name}} {{employee_data.middle_name}} {{employee_data.last_name}}
+                        <br/>
+                         {{employee_data.email}}  
+                    </ion-col>
+                </ion-row> 
+                <ion-row>
+                    <ion-col text-wrap class="bold text-left">
+                        Gender
+                    </ion-col>
+                    <ion-col class="text-left" *ngIf="employee_data.gender != 'undefined'">
+                       {{employee_data.gender}}
+                    </ion-col>
+                </ion-row>
+                <ion-row>
+                    <ion-col text-wrap class="bold text-left">
+                        Contact No
+                    </ion-col>
+                    <ion-col class="text-left" *ngIf="employee_data.contact_no != 'undefined'">
+                       {{employee_data.contact_no}}
+                    </ion-col>
+                </ion-row> 
+                <ion-row>
+                    <ion-col text-wrap class="bold text-left">
+                       Blood Group
+                    </ion-col>
+                    <ion-col class="text-left" *ngIf="employee_data.blood_group != 'undefined'">
+                      {{employee_data.blood_group}}
+                    </ion-col>
+                </ion-row>
+                <ion-row>
+                    <ion-col text-wrap class="bold text-left">
+                       DOB
+                    </ion-col>
+                    <ion-col class="text-left" *ngIf="employee_data.date_of_birth != 'undefined'">
+                      {{employee_data.date_of_birth}}
+                    </ion-col>
+                </ion-row>
+                <ion-row>
+                    <ion-col text-wrap class="bold text-left">
+                       Adhar No
+                    </ion-col>
+                    <ion-col class="text-left" *ngIf="employee_data.adhar_no != 'undefined'">
+                        {{employee_data.adhar_no}}
+                    </ion-col>
+                </ion-row>
+                <ion-row>
+                    <ion-col text-wrap class="bold text-left">
+                        Country
+                    </ion-col>
+                    <ion-col class="text-left" *ngIf="employee_data.country != 'undefined'">
+                        {{employee_data.country}}
+                    </ion-col>
+                </ion-row>
+                <ion-row>
+                    <ion-col text-wrap class="bold text-left">
+                        State
+                    </ion-col>
+                    <ion-col class="text-left" *ngIf="employee_data.state != 'undefined'">
+                       {{employee_data.state}}
+                    </ion-col>
+	            </ion-row>
+	            <ion-row>
+                    <ion-col text-wrap class="bold text-left">
+                        District
+                    </ion-col>
+                    <ion-col class="text-left" *ngIf="employee_data.district != 'undefined'">
+                       {{employee_data.district}}
+                    </ion-col>
+                </ion-row> 
+                <ion-row>
+                    <ion-col text-wrap class="bold text-left">
+                        City
+                    </ion-col>
+                    <ion-col class="text-left" *ngIf="employee_data.city != 'undefined'">
+                      {{employee_data.city}}
+                    </ion-col>
+                </ion-row>
+                <ion-row>
+                    <ion-col text-wrap class="bold text-left">
+                       Address
+                    </ion-col>
+                    <ion-col class="text-left" *ngIf="employee_data.address != 'undefined'">
+                       {{employee_data.address}}
+                    </ion-col>
+                </ion-row>
+                <ion-row>
+                    <ion-col text-wrap class="bold text-left">
+                        Pin Code
+                    </ion-col>
+                    <ion-col class="text-left" *ngIf="employee_data.pin_code != 'undefined'">
+                        {{employee_data.pin_code}}
+                    </ion-col>
+	            </ion-row>
+                <ion-row>
+                    <ion-col text-wrap class="bold text-left">
+                        Company
+                    </ion-col>
+                    <ion-col class="text-left" *ngIf="employee_data.company != 'undefined'">
+                       {{employee_data.company}}
+                    </ion-col>
+                </ion-row>
+                <ion-row>
+                    <ion-col text-wrap class="bold text-left">
+                        Branch
+                    </ion-col>
+                    <ion-col class="text-left" *ngIf="employee_data.branch != 'undefined'">
+                        {{employee_data.branch}}
+                    </ion-col>
+                </ion-row>
+                <ion-row>
+                    <ion-col text-wrap class="bold text-left">
+                       Status
+                    </ion-col>
+                    <ion-col class="text-left" *ngIf="employee_data.status != 'undefined'">
+                       {{employee_data.status ? "Active":"Inactive"}}
+                    </ion-col>
+	            </ion-row>
+            </ng-container>
+        </ion-grid>
+    </div>
+</ion-content>

@@ -1,0 +1,159 @@
+<!--
+  Generated template for the BookingPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Booking</ion-title>
+    <ion-buttons end>
+            <button ion-button (click)="closeModal()">Close</button>
+        </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+	<div class="divBox">
+       <form (submit)="saveBookingRequest()">
+       	    <ion-item>
+                <ion-label>Enquiry</ion-label>
+                <ion-select [(ngModel)]="enquiry_type" name="Employee" [compareWith]="compareFn" interface="popover" multiple="false">
+                <ion-option *ngFor="let etd of enquiry_type_data" [value]="etd">{{etd.text}}</ion-option>
+            </ion-select>
+            </ion-item>
+            <ion-item>
+                <ion-label>Employee</ion-label>
+                <ion-select [(ngModel)]="employee_type" name="EmployeeName" [compareWith]="compareFn" interface="popover" multiple="false">
+                <ion-option *ngFor="let eetd of employee_type_data" [value]="eetd">{{eetd.text}}</ion-option>
+            </ion-select>
+            </ion-item>
+             <ion-item>
+                <ion-label>Agent</ion-label>
+                <ion-select [(ngModel)]="agent_type" name="EmployeeName" [compareWith]="compareFn" interface="popover" multiple="false">
+                <ion-option *ngFor="let atd of agent_type_data" [value]="atd">{{atd.text}}</ion-option>
+            </ion-select>
+            </ion-item>
+               <ion-row>
+                  <ion-col style="color:blue;" class="bold text-center" col-12>Customer Details</ion-col>
+               </ion-row>
+            <ion-item>
+                <ion-label>PanCard</ion-label>
+                <ion-textarea [(ngModel)]="PanCard" name="PanCard" type="text" maxlength="10" placeholder="BTRAD4865A"></ion-textarea>
+            </ion-item>
+            <ion-item>
+                <ion-label>AdharCard</ion-label>
+                <ion-textarea [(ngModel)]="AdharCard" name="AdharCard" type="tel" maxlength="12" placeholder="502107854549"></ion-textarea>
+            </ion-item>
+            <ion-item>
+                <ion-label>LicenceNo</ion-label>
+                <ion-textarea [(ngModel)]="LicenceNo" name="LicenceNo" type="text" maxlength="11" (ngModelChange)="textAreaEmpty()" placeholder="MH1008253021"></ion-textarea>
+            </ion-item>
+            <ion-item>
+                <ion-label>Consumer Number</ion-label>
+                <ion-textarea [(ngModel)]="LightBill" name="LightBill" type="text" maxlength="10" (ngModelChange)="textAreaEmpty()" placeholder="eg: 18224905"></ion-textarea>
+            </ion-item>
+            <ion-item>
+                <ion-label>Unit</ion-label>
+                <ion-textarea [(ngModel)]="BS" name="BS" type="text" (ngModelChange)="textAreaEmpty()" placeholder="Unit"></ion-textarea>
+            </ion-item>
+            <ion-item>
+                <ion-label>Current Address</ion-label>
+                <ion-textarea [(ngModel)]="RentAggrement" name="RentAggrement" type="text" (ngModelChange)="textAreaEmpty()" placeholder="Current Address"></ion-textarea>
+            </ion-item>
+          
+            <ion-item>
+                <ion-label>Permanent Address</ion-label>
+                <ion-textarea [(ngModel)]="NativeLightBill" name="NativeLightBill" type="text" (ngModelChange)="textAreaEmpty()" placeholder="Permanent Address"></ion-textarea>
+            </ion-item>
+            <ion-item>
+                <ion-label>Firm Name</ion-label>
+                <ion-textarea [(ngModel)]="ITR" name="ITR" type="text" (ngModelChange)="textAreaEmpty()" placeholder="FirmName"></ion-textarea>
+            </ion-item> 
+          <!--    <ion-item>
+                <ion-label>Firm Name</ion-label>
+                <ion-textarea [(ngModel)]="FirmName" name="FirmName" type="text" (ngModelChange)="textAreaEmpty()" placeholder="Firm Name"></ion-textarea>
+            </ion-item> -->
+             <ion-item>
+                <span>Date</span>
+                 <span ion-datepicker (ionChanged)="setDate($event, 'Date');" name="selectedDate" [(value)]="selectedDate" [min]="date_Min" [max]="date_Max" clear class="ScheduleDate datePickerSpan">
+                 <span>{{selectedDate | date: 'dd-MMM-yyyy'}} <ion-icon name="clipboard" item-left></ion-icon> </span>
+                 </span>
+             </ion-item>
+              <ion-row>
+                  <ion-col style="color:blue;" class="bold text-center" col-12>Guarantor Details</ion-col>
+               </ion-row>
+            <ion-item>
+                <ion-label>GuarantorPan</ion-label>
+                <ion-textarea [(ngModel)]="GuarantorPan" name="GuarantorPan" type="text"  maxlength="10" (ngModelChange)="textAreaEmpty()" placeholder="BTRAD4865A"></ion-textarea>
+            </ion-item>
+             <ion-item>
+                <ion-label>GuarantorAdhar</ion-label>
+                <ion-textarea [(ngModel)]="GuarantorAdhar" name="GuarantorAdhar" type="text"  maxlength="12" (ngModelChange)="textAreaEmpty()" placeholder="502107854549"></ion-textarea>
+            </ion-item>
+            <ion-item>
+                <ion-label>Consumer Number</ion-label>
+                <ion-textarea [(ngModel)]="GuarantorLightBill" name="GuarantorLightBill" type="text"  maxlength="11" (ngModelChange)="textAreaEmpty()" placeholder="Consumer Number"></ion-textarea>
+            </ion-item>
+            <ion-item>
+                <ion-label>Unit</ion-label>
+                <ion-textarea [(ngModel)]="Unit" name="Unit" type="text" (ngModelChange)="textAreaEmpty()" placeholder="Unit"></ion-textarea>
+            </ion-item>
+            <ion-item>
+                <ion-label>Current Address</ion-label>
+                <ion-textarea [(ngModel)]="GuarantorRentAggrement" name="GuarantorRentAggrement" type="text" (ngModelChange)="textAreaEmpty()" placeholder="Current Address"></ion-textarea>
+            </ion-item>
+             <ion-item>
+                <ion-label>Mobile Number</ion-label>
+                <ion-textarea [(ngModel)]="GuarantorBS" name="GuarantorBS" type="text"  maxlength="10" (ngModelChange)="textAreaEmpty()" placeholder="9876543219"></ion-textarea>
+            </ion-item>
+           <!--  <ion-item>
+                <ion-label>Unit</ion-label>
+                <ion-textarea [(ngModel)]="GuarantorITR" name="GuarantorITR" type="text" maxlength="10" (ngModelChange)="textAreaEmpty()" placeholder="9876543219"></ion-textarea>
+            </ion-item> -->
+                <ion-row>
+                  <ion-col style="color:blue;" class="bold text-center" col-12>Guarantor1 Details</ion-col>
+               </ion-row>
+            <ion-item>
+                <ion-label>Guarantor1PanCard</ion-label>
+                <ion-textarea [(ngModel)]="Guarantor1PanCard" name="Guarantor1PanCard" type="text"  maxlength="10" (ngModelChange)="textAreaEmpty()" placeholder="BTRAD4865A"></ion-textarea>
+            </ion-item>
+            <ion-item>
+                <ion-label>Guarantor1AdharCard</ion-label>
+                <ion-textarea [(ngModel)]="Guarantor1AdharCard" name="Guarantor1AdharCard" type="text"  maxlength="12" (ngModelChange)="textAreaEmpty()" placeholder="502107854549"></ion-textarea>
+            </ion-item>
+             <ion-item>
+                <ion-label>Consumer Number</ion-label>
+                <ion-textarea [(ngModel)]="Guarantor1LightBill" name="Guarantor1LightBill" type="text"  maxlength="11" (ngModelChange)="textAreaEmpty()" placeholder="Consumer Number"></ion-textarea>
+            </ion-item>
+             <ion-item>
+                <ion-label>Unit</ion-label>
+                <ion-textarea [(ngModel)]="Unit1" name="Unit1" type="text"  (ngModelChange)="textAreaEmpty()" placeholder="Unit"></ion-textarea>
+            </ion-item>
+             <ion-item>
+                <ion-label>Current Address</ion-label>
+                <ion-textarea [(ngModel)]="Guarantor1RentAggrement" name="Guarantor1RentAggrement" type="text" (ngModelChange)="textAreaEmpty()" placeholder="Current Address"></ion-textarea>
+            </ion-item>
+             <ion-item>
+                <ion-label>Mobile Number</ion-label>
+                <ion-textarea [(ngModel)]="Guarantor1BS" name="Guarantor1BS" type="text" maxlength="10" (ngModelChange)="textAreaEmpty()" placeholder="9876543210"></ion-textarea>
+            </ion-item>
+            <!--  <ion-item>
+                <ion-label>Mobile Number</ion-label>
+                <ion-textarea [(ngModel)]="Guarantor1ITR" name="Guarantor1ITR" type="text"  (ngModelChange)="textAreaEmpty()" placeholder="9876543219"></ion-textarea>
+            </ion-item> -->
+            <ion-item>
+                <ion-label>Active</ion-label>
+                <ion-checkbox  [(ngModel)]="Active" name="Active" checked="false" (ngModelChange)="textAreaEmpty()"></ion-checkbox>
+            </ion-item>
+           
+            <div padding>
+                <button ion-button full color="secondary" type="submit">Create Booking</button>
+            </div>
+        </form> 
+    </div>
+
+</ion-content>

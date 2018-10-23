@@ -1,0 +1,89 @@
+<!--
+  Generated template for the MenuPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Menu</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+	 <div class="divBox" style="height: 100%;">
+        <ion-grid class="text-center">
+            <ion-row>
+            
+              <ion-col>
+                   <div class="clsCursorPointer" (click)="gotoAnotherPage('Profile')">
+                        <div>
+                            <img src='assets/imgs/personal.png' alt='CompanyProfile' width="40" height="40"/>
+                        </div>
+                        <div>
+                            <strong>Info</strong>
+                        </div>
+                    </div>
+                </ion-col>
+                <ion-col>
+                    <div class="clsCursorPointer" (click)="gotoAnotherPage('Enquiry')">
+                        <div>
+                            <img src='assets/imgs/enquiry.jpg' alt='Enquiry' width="40" height="40"/>
+                        </div>
+                        <div>
+                            <strong>Enquiry</strong>
+                        </div>
+                    </div>
+                </ion-col>
+                <ion-col>
+                    <div class="clsCursorPointer" (click)="gotoAnotherPage('Schemes')">
+                        <div>
+                            <img src='assets/imgs/scheme.png' alt='Schemes' width="40" height="40"/>
+                        </div>
+                        <div>
+                            <strong>Schemes</strong>
+                        </div>
+                    </div>
+                </ion-col>
+              </ion-row>
+              <ion-row>
+            <ion-col>
+                   <div class="clsCursorPointer" (click)="gotoAnotherPage('Booking')">
+                        <div>
+                            <img src='assets/imgs/book.png' alt='Book' width="40" height="40"/>
+                        </div>
+                        <div>
+                            <strong>Book</strong>
+                        </div>
+                    </div>
+                </ion-col>
+                <ion-col>
+                    <div class="clsCursorPointer" (click)="gotoAnotherPage('apk')">
+                        <div>
+                            <img src='assets/imgs/update.png' alt='Logout' width="40" height="40"/>
+                        </div>
+                        <div>
+                            <strong>Upgrade App</strong>
+                        </div>
+                    </div>
+                </ion-col>
+                <ion-col>
+                   <div class="clsCursorPointer" (click)="gotoAnotherPage('Logout')">
+                        <div>
+                            <img src='assets/imgs/logout.png' alt='Logout' width="40" height="40"/>
+                        </div>
+                        <div>
+                            <strong>Logout</strong>
+                        </div>
+                    </div>
+                </ion-col>
+                <!--  <ion-col>
+                </ion-col> -->
+              </ion-row>
+          </ion-grid>
+      </div>
+
+</ion-content>

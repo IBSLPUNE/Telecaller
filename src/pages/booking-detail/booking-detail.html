@@ -1,0 +1,159 @@
+<!--
+  Generated template for the BookingDetailPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Booking Detail</ion-title>
+       <ion-buttons end>
+    	  <button ion-button (click)="closeModal()">Close</button>
+        </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+	<div class="divBoxmin">
+
+        <ion-grid class="grdLeaveHistory">
+            <ion-row>
+                <ion-col text-wrap class="bold text-left">Enquiry By</ion-col>
+                <ion-col>{{book_data.enquiry_pre}} {{book_data.enquiry_lnm}}</ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col text-wrap class="bold text-left">Executive/Booking</ion-col>
+                <ion-col>{{book_data.executive_pre}} {{book_data.executive_fnm}} {{book_data.executive_lnm}}</ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col text-wrap class="bold text-left">Created By</ion-col>
+                <ion-col>{{book_data.created_by_pre}} {{book_data.created_by_fnm}} {{book_data.created_by_lnm}}</ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col text-wrap class="bold text-left">Agent Name</ion-col>
+                <ion-col>{{book_data.agent_fnm}} {{book_data.agent_mnm}} {{book_data.agent_lnm}}</ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col style="color:blue;" class="bold text-center" col-12>Customer Details</ion-col>
+            </ion-row>
+           <ion-row>
+                <ion-col text-wrap class="bold text-left">Name</ion-col>
+                <ion-col>{{book_data.enquiry_id}}</ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col text-wrap class="bold text-left">Mobile No</ion-col>
+                <ion-col>{{book_data.phone_number}}</ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col text-wrap class="bold text-left">Pan Card</ion-col>
+                <ion-col>{{book_data.pan}}</ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col text-wrap class="bold text-left">Adhar Card</ion-col>
+                <ion-col>{{book_data.adhar}}</ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col text-wrap class="bold text-left">Licence No</ion-col>
+                <ion-col *ngIf="book_data.licence != 'undefined'">{{book_data.licence}}</ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col text-wrap class="bold text-left">Consumer Number</ion-col>
+                <ion-col *ngIf="book_data.light_bill != 'undefined'">{{book_data.light_bill}}</ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col text-wrap class="bold text-left">Current Address</ion-col>
+                <ion-col *ngIf="book_data.rent_agr != 'undefined'">{{book_data.rent_agr}}</ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col text-wrap class="bold text-left">Unit</ion-col>
+                <ion-col *ngIf="book_data.bs != 'undefined'">{{book_data.bs}}</ion-col>
+            </ion-row>
+           <!--  <ion-row>
+                <ion-col text-wrap class="bold text-left">ITR</ion-col>
+                <ion-col *ngIf="book_data.itr != 'undefined'">{{book_data.itr}}</ion-col>
+            </ion-row> -->
+            <ion-row>
+                <ion-col text-wrap class="bold text-left">Permanent Address</ion-col>
+                <ion-col *ngIf="book_data.native_light_bill != 'undefined'">{{book_data.native_light_bill}}</ion-col>
+            </ion-row>
+             <ion-row>
+                <ion-col text-wrap class="bold text-left">Firm Name</ion-col>
+                <ion-col *ngIf="book_data.itr != 'undefined'">{{book_data.itr}}</ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col text-wrap class="bold text-left">Date</ion-col>
+                <ion-col>{{book_data.date | date:'dd-MM-yyyy'}}</ion-col>
+            </ion-row>
+            <ion-row>
+                  <ion-col style="color:blue;" class="bold text-center" col-12>Guarantor Details</ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col text-wrap class="bold text-left">Guarantor Pan	</ion-col>
+                <ion-col *ngIf="book_data.pan_guarantor != 'undefined'">{{book_data.pan_guarantor}}</ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col text-wrap class="bold text-left">Guarantor Adhar</ion-col>
+                <ion-col *ngIf="book_data.adhar_guarantor != 'undefined'">{{book_data.adhar_guarantor}}</ion-col>
+            </ion-row>
+             <ion-row>
+                <ion-col text-wrap class="bold text-left">Unit</ion-col>
+                <ion-col *ngIf="book_data.itr_guarantor != 'undefined'">{{book_data.itr_guarantor}}</ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col text-wrap class="bold text-left">Consumer Number</ion-col>
+                <ion-col *ngIf="book_data.light_bill_guarantor != 'undefined'">{{book_data.light_bill_guarantor}}</ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col text-wrap class="bold text-left">Current Address</ion-col>
+                <ion-col *ngIf="book_data.rent_agr_guarantor != 'undefined'">{{book_data.rent_agr_guarantor}}</ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col text-wrap class="bold text-left">Mobile Number</ion-col>
+                <ion-col *ngIf="book_data.bs_guarantor != 'undefined'">{{book_data.bs_guarantor}}</ion-col>
+            </ion-row>
+           <!--  <ion-row>
+                <ion-col text-wrap class="bold text-left">Guarantor ITR</ion-col>
+                <ion-col *ngIf="book_data.itr_guarantor != 'undefined'">{{book_data.itr_guarantor}}</ion-col>
+            </ion-row> -->
+              <ion-row>
+                  <ion-col style="color:blue;" class="bold text-center" col-12>Guarantor1 Details</ion-col>
+               </ion-row>
+              <ion-row>
+                <ion-col text-wrap class="bold text-left">Guarantor1 Pan</ion-col>
+                <ion-col *ngIf="book_data.pan_guarantor1 != 'undefined'">{{book_data.pan_guarantor1}}</ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col text-wrap class="bold text-left">Guarantor1 Adhar </ion-col>
+                <ion-col *ngIf="book_data.adhar_guarantor1 != 'undefined'">{{book_data.adhar_guarantor1}}</ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col text-wrap class="bold text-left">Consumer Number</ion-col>
+                <ion-col *ngIf="book_data.light_bill_guarantor1 != 'undefined'">{{book_data.light_bill_guarantor1}}</ion-col>
+            </ion-row>
+             <ion-row>
+                <ion-col text-wrap class="bold text-left">Unit</ion-col>
+                <ion-col *ngIf="book_data.itr_guarantor1 != 'undefined'">{{book_data.itr_guarantor1}}</ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col text-wrap class="bold text-left">Current Address</ion-col>
+                <ion-col *ngIf="book_data.rent_agr_guarantor1 != 'undefined'">{{book_data.rent_agr_guarantor1}}</ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col text-wrap class="bold text-left">Mobile Number</ion-col>
+                <ion-col *ngIf="book_data.bs_guarantor1 != 'undefined'">{{book_data.bs_guarantor1}}</ion-col>
+            </ion-row>
+           <!--  <ion-row>
+                <ion-col text-wrap class="bold text-left">Guarantor1 ITR</ion-col>
+                <ion-col *ngIf="book_data.itr_guarantor1 != 'undefined'">{{book_data.itr_guarantor1}}</ion-col>
+            </ion-row> -->
+             <ion-row>
+                <ion-col text-wrap class="bold text-left">Status</ion-col>
+                <ion-col *ngIf="book_data.status != 'undefined'">{{book_data.status ? "Active":"Inactive"}}</ion-col>
+            </ion-row>
+        </ion-grid>
+    </div>
+
+</ion-content>
